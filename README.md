@@ -10,6 +10,15 @@ db.users.find({badges:"black"},{"_id":1,badges:1})
 { "_id" : 6, "badges" : [ "black", "blue" ] }
 		
 ```
+
+##### 匹配数组中任意元素
+```
+db.users.find({"badges" : {$in:[ "black", "blue"]}})  
+// badges 中包含 black 或者 blue 元素
+{ "_id" : 1, "badges" : [ "blue", "black" ] }
+{ "_id" : 4, "badges" : [ "red", "black" ] }
+{ "_id" : 6, "badges" : [ "black", "blue" ] }
+```
 ##### 数组元素精确匹配
 
 ```
